@@ -1,7 +1,11 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const mongoose = require('mongoose')
-const routes = require('./routes/api')
+
+const userRoute = require('./routes/user')
+const orderRoute = require('./routes/order')
+const productRoute = require('./routes/product')
+const checkoutRoute = require('./routes/checkout')
 
 require('dotenv').config()
 
@@ -24,7 +28,10 @@ app.use((req, res, next) => {
 
 app.use(bodyParser.json());
 
-app.use('/user', routes);
+app.use('/user', userRoute);
+app.use('/order', orderRoute);
+app.use('/product', productRoute);
+app.use('/checkout', checkoutRoute);
 
 app.use((req, res, next) => {
 	res.send('Welcome to Express');
