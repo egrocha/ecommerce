@@ -1,18 +1,27 @@
-import logo from './logo.svg';
-import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
-import Container from 'react-bootstrap/Container'
+import React from "react";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
-import './App.css';
-import Home from './view/home'
+import Home from './Home.js';
+import Item from './Item.js';
+import Checkout from './Checkout.js';
 
-function App(){
-	return(
-		<Router>
-			<Routes>
-				<Route exact path='/' element={<Home />} />
-			</Routes>
-		</Router>
-	)
+export default function BasicExample() {
+  return (
+    <Router>
+      <div>
+				<h2>ECommerce</h2>
+				<div>
+					<Link to='/'><button type='button'>Home</button></Link>&nbsp;
+					<Link to='/checkout'><button type='button'>Checkout</button></Link>
+				</div>
+				<hr />
+
+        <Routes>
+          <Route path='/' element={<Home />} />
+					<Route path='/item/:id' element={<Item />} />
+					<Route path ='/checkout' element={<Checkout/>} />
+        </Routes>
+      </div>
+    </Router>
+  );
 }
-
-export default App;

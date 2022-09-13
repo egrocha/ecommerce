@@ -1,0 +1,13 @@
+.ItemGrid {
+    text-align: center;
+}
+
+#img-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 5px;
+}
+
+#img {
+    padding: 5px;
+}
